@@ -1,2 +1,11 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>New Patient</h1>
+  <%= form_with(model: @user, local: true, class: "ui form") do |f| %>
+    <div class="field">
+      <h2><%= f.label :Name %></h2>
+        <%= f.text_field :first_name, required: true, autofocus: true, placeholder: "First Name" %>
+        <%= f.text_field :last_name, required: true, autofocus: true, placeholder: "Last Name" %>
+      <h2><%= f.label :Alias %></h2>
+        <%= f.text_field :patient_num, required: true, placeholder: "Type Unique Alias" %>
+    </div>
+  <%= f.submit nil, class: "ui grey button" %>
+<% end %>

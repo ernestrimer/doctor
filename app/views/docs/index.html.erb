@@ -1,2 +1,11 @@
-<h1>Docs#index</h1>
-<p>Find me in app/views/docs/index.html.erb</p>
+<h1>Doctors</h1>
+<%= link_to 'Add Doctor', new_doc_path %>
+<hr />
+<h2><%= @docs.length <= 0 ? "No Doctors" : "" %></h2> 
+<ul>
+  <% @docs.each do |doc| %>
+    <li>
+      <%= link_to doc.dr_num, doc %>
+    </li>
+  <% end %>
+</ul>

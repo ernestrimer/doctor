@@ -1,5 +1,5 @@
 class DocsController < ApplicationController
-  before_action: set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_doc, only: [:show, :edit, :update, :destroy]
 
   def index
     @docs = Doc.all
@@ -12,11 +12,11 @@ class DocsController < ApplicationController
     @doc = Doc.new
   end
 
-  def Create
+  def create
     @doc = Doc.create(doc_params) #.create or .new?
     if @doc.save
       #May need to fix later:
-      @redirect_to @doc
+      redirect_to docs_path
     else
       render :new
     end
@@ -39,12 +39,11 @@ class DocsController < ApplicationController
   end
 
   private
-  def set_user
+  def set_doc
     @doc = Doc.find(params[:id])
   end
 
   def doc_params
     params.require(:doc).permit(:dr_name, :dr_num)
   end
-
 end
