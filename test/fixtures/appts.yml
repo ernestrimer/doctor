@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2020-06-04
-  time: 2020-06-04 20:44:40
+  date: 2020-06-07
+  time: 2020-06-07 12:15:21
+  doc: one
   user: one
-  Doc: one
 
 two:
-  date: 2020-06-04
-  time: 2020-06-04 20:44:40
+  date: 2020-06-07
+  time: 2020-06-07 12:15:21
+  doc: two
   user: two
-  Doc: two
