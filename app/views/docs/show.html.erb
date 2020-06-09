@@ -1,2 +1,8 @@
-<h1>Docs#show</h1>
-<p>Find me in app/views/docs/show.html.erb</p>
+<h1><% @doc.dr_num %></h1>
+<hr />
+<br />
+<%= link_to 'Appointments', doc_appts_path(@doc), class: "ui green button inverted" %>
+<br />
+<br />
+<br />
+<%= link_to "Delete Appointment", @doc, method: :delete, class: "ui red button" %>

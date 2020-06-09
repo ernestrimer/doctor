@@ -1,9 +1,12 @@
 class ApptsController < ApplicationController
+  before_action :set_doc
+
   def index
-    @doctors = @doc.appts.where()
+    @doctors = @doc.appts
   end
 
   def new
+    @users = User.all - @doc.users
     @appt = @doc.appts.new
   end
 
@@ -14,18 +17,20 @@ class ApptsController < ApplicationController
     else
       render :new
     end
+  end
   
-    def destroy
-      @appt = @doc.appts.find(params[:id])
-      @appt.destroy
-      redirect_to doc_appts_path(@doc)
+  def destroy
+    @appt = @doc.appts.find(params[:id])
+    @appt.destroy
+    redirect_to doc_appts_path(@doc)
+  end
 
       private
       def set_doc
         @doc = Doc.find(params[:doc_id])
       end
 
-      def appts_params
-        params.require(:appts).permit(:dr_name, :user_id)
+      def appt_params
+        params.require(:appt).permit(:date, :time)
       end
 end
