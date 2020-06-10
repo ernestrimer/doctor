@@ -1,12 +1,14 @@
-<h1>Add Appointment</h1>
-<%= form_with(model: [@doc, @appt], local: true, class: "ui form" ) do |f| %>
-  <%= f.label :user %>
-  <%= f.select :user_id, @users.collect { |u| [u.full_name, u.id] } %>
-  <%= f.label :Date_and_Time %>
+<h1>Add Appointments</h1>
+<%= form_with(model: [@doc, @appt], local: true, class: 'ui form') do |f| %>
+  <div class="field">
+    <%= f.label :user %>
+    <%= f.select :user_id, @users.collect { |u| [u.full_name, u.id] } %>
+  </div>
   
-<%= f.date_field :dr_name, required: true, placeholder: "Date" %>
-<%= f.time_field :dr_num, required: true, placeholder: "Time" %>
-  <br />
-  <br />
-  <%= f.submit nil, class: "ui green button inverted" %>
+  <div class="field">
+    <%= f.label :Date_and_Time %>
+    <%= f.date_field :date, required: true, placeholder: "Date" %>
+    <%= f.time_field :time, required: true, placeholder: "Time" %>
+  </div>
+  <%= f.submit nil, class: "ui blue button" %>
 <% end %>

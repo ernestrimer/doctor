@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user_appts = @user.appts
   end
 
   def new
@@ -35,7 +36,7 @@ end
 
 def destroy
   @user.destroy
-  redirect_to ##
+  redirect_to users_path
 end 
 
   private

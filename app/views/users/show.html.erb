@@ -1,14 +1,12 @@
 <h1><%= @user.full_name %></h1>
 <hr />
-<h2>Doctors</h2>
+<h3>Appointments</h3>
 <ul>
-  <% @user.doctor.each do |doctor| %>
+  <% @user_appts.each do |appt| %>
     <li>
-      <%= link_to doctor.dr_name, doctor %>
+      <%= "#{appt.doc.dr_name} (#{appt.doc.dr_num}): #{appt.date}" %>
     </li>
   <% end %>
 </ul>
-<br />
-<br />
 <br />
 <%= link_to 'Delete User', @user, method: :delete, class: "ui red button" %>
