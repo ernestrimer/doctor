@@ -6,6 +6,7 @@ class DocsController < ApplicationController
   end
 
   def show
+    @doc_appts = @doc.appts
   end
 
   def new

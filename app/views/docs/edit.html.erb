@@ -1,10 +1,11 @@
-<h1>Edit Doc</h1>
-
+<h1>Edit Doctor Info</h1>
+<hr />
 <%= form_with(model: @doc, local: true, class: "ui form" ) do |f| %>
   <div class="field">
-    <%= f.label :Name %>
+    <h3><%= f.label :Name %></h3>
     <%= f.text_field :dr_name, required: true, placeholder: "Doctor's Last Name" %>
     <%= f.text_field :dr_num, required: true, placeholder: "Doctor's Alias" %>
   </div>
-  <%= f.submit nil, class: "ui grey button" %>
+  <%= f.submit 'Update Doc Info', class: "ui grey button" %>
+  <%= link_to "Delete Doc", @doc, method: :delete, class: "ui red button" %>
 <% end %>

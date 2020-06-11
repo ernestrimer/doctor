@@ -13,7 +13,7 @@ class ApptsController < ApplicationController
   def create
     @appt = @doc.appts.new(appt_params)
     if @appt.save
-      redirect_to doc_appts_path(@doc)
+      redirect_to doc_path(@doc)
     else
       render :new
     end
@@ -22,7 +22,8 @@ class ApptsController < ApplicationController
   def destroy
     @appt = @doc.appts.find(params[:id])
     @appt.destroy
-    redirect_to doc_appts_path(@doc)
+    # redirect_to doc_appts_path(@doc)
+    redirect_to doc_path(@doc)
   end
 
       private

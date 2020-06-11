@@ -1,13 +1,17 @@
 <h1><%= @user.full_name %></h1>
+<%= link_to 'Edit Patient Info', edit_user_path(@user)%>
 <hr />
-<h3>Appointments</h3>
+<h3><%= @user_appts.length <= 0 ? "No Appointments" : "Appointments" %>
+<%= link_to 'Add', class: "ui blue button inverted" %></h3>
 <ul>
   <% @user_appts.each do |appt| %>
     <li>
       <%= "#{appt.doc.dr_name} (#{appt.doc.dr_num}): #{appt.date}" %>
+      <br/>
+      <%= "Cancel"%>
+      <%= "Reschedule" %>
+      <br/>
+      <br/>
     </li>
   <% end %>
 </ul>
-<br />
-<%= link_to 'Edit', edit_user_path(@user), class: "ui green button inverted" %>
-<%= link_to 'Delete Patient', @user, method: :delete, class: "ui red button" %>

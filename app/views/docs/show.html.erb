@@ -1,6 +1,19 @@
-<h2><%= @doc.dr_num %></h2>
+<h1><%= @doc.dr_num %></h1>
+<%= link_to 'Edit Doctor Info', edit_doc_path(@doc)%>
 <hr />
-<br />
-<%= link_to 'Appointments', doc_appts_path(@doc), class: "ui green button inverted" %>
-<%= link_to 'Edit', edit_doc_path(@doc), class: "ui green button inverted" %>
-<%= link_to "Delete Appts", @doc, method: :delete, class: "ui red button" %>
+<h3><%= @doc_appts.length <= 0 ? "No Appointments" : "Appointments" %>
+<%= link_to 'Add', new_doc_appt_path(@doc), class: "ui blue button inverted" %></h3>
+<div>
+<ul>
+  <% @doc_appts.each do |appt| %>
+    <li>
+      <%= "#{appt.user.full_name}: #{appt.date}" %>
+      <br/>
+      <%= link_to 'Cancel', doc_appt_path(@doc, appt), method: :delete %>
+      <%= "Reschedule" %>
+      <br/>
+      <br/>
+      </li>
+  <% end %>
+</ul>
+</div>
