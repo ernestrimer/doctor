@@ -1,4 +1,4 @@
-<h1><%= @doc.dr_num %></h1>
+<h1><%= @doc.full_name %></h1>
 <%= link_to 'Edit Doctor Info', edit_doc_path(@doc)%>
 <hr />
 <h3><%= @doc_appts.length <= 0 ? "No Appointments" : "Appointments" %>
