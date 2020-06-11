@@ -28,7 +28,7 @@ end
 
 def update
   if @user.update(user_params)
-    # do something
+     redirect_to user_path
   else
     render :edit
   end

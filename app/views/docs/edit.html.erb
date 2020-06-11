@@ -1,2 +1,10 @@
-<h1>Docs#edit</h1>
-<p>Find me in app/views/docs/edit.html.erb</p>
+<h1>Edit Doc</h1>
+
+<%= form_with(model: @doc, local: true, class: "ui form" ) do |f| %>
+  <div class="field">
+    <%= f.label :Name %>
+    <%= f.text_field :dr_name, required: true, placeholder: "Doctor's Last Name" %>
+    <%= f.text_field :dr_num, required: true, placeholder: "Doctor's Alias" %>
+  </div>
+  <%= f.submit nil, class: "ui grey button" %>
+<% end %>

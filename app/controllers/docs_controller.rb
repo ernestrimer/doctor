@@ -32,7 +32,7 @@ class DocsController < ApplicationController
 
   def update
     if @doc.update(doc_params)
-      # do something
+        redirect_to doc_path
     else
       render :edit
     end

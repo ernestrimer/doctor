@@ -1,8 +1,6 @@
-<h1><% @doc.dr_num %></h1>
+<h2><%= @doc.dr_num %></h2>
 <hr />
 <br />
 <%= link_to 'Appointments', doc_appts_path(@doc), class: "ui green button inverted" %>
-<br />
-<br />
-<br />
-<%= link_to "Delete Appointment", @doc, method: :delete, class: "ui red button" %>
+<%= link_to 'Edit', edit_doc_path(@doc), class: "ui green button inverted" %>
+<%= link_to "Delete Appts", @doc, method: :delete, class: "ui red button" %>
